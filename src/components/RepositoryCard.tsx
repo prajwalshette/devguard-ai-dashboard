@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { GitBranch, ExternalLink } from "lucide-react";
 import { SeverityBadge } from "./SeverityBadge";
 import { Button } from "./ui/button";
@@ -22,7 +23,7 @@ export function RepositoryCard({ repo }: RepositoryCardProps) {
   const totalVulns = repo.vulnerabilities.high + repo.vulnerabilities.medium + repo.vulnerabilities.low;
 
   return (
-    <div className="group rounded-lg border border-border bg-card p-4 transition-colors hover:border-muted-foreground/20 hover:bg-card/80">
+    <Link to={`/repository/${repo.id}`} className="block group rounded-lg border border-border bg-card p-4 transition-colors hover:border-muted-foreground/20 hover:bg-card/80">
       <div className="flex items-start justify-between gap-4">
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2 mb-1">
@@ -59,6 +60,6 @@ export function RepositoryCard({ repo }: RepositoryCardProps) {
           </>
         )}
       </div>
-    </div>
+    </Link>
   );
 }
